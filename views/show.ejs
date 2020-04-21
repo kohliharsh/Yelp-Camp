@@ -1,0 +1,47 @@
+<%- include('partials/header') %>
+<div class="container">
+    <div class="row" style="margin-top: 15px;">
+        <div class="col-lg-3">
+            <h3 style="color: #A9A9A9;">Yelp Camp</h3>
+            <div class="list-group" style="list-style: none;">
+                <li class="list-group-item active">First</li>
+                <li class="list-group-item">First</li>
+                <li class="list-group-item">First</li>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <figure>
+                <p>
+                <img src="<%= campgrounds.image %>" alt="" class="img-thumbnail"
+                style="float: right;
+                width: 30%;
+                text-align: center;
+                font-style: italic;
+                font-size: smaller;
+                text-indent: 0;
+                border: thin silver solid;
+                margin: 0.5em;
+                padding: 0.5em;width: 50%;">
+                <p style="margin:0;"><span style = "font-size: 30px; margin-bottom: 0;"><a href=""><%= campgrounds.title %></a></span></p>
+                <p style="font-size: 20px;">Price:9$/-
+                </p>
+                <figcaption><%= campgrounds.description %></figcaption>
+            </figure>
+            <h3>Reviews</h3>
+            <% for(var i = 0 ; i<campgrounds.comment.length ; i++) { %>
+            <p><%= campgrounds.comment[i] %></p>
+            <% } %>
+            <form action="/campgrounds/<%= campgrounds.title %>" method="POST">
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1"><b>Add review</b></label>
+                    <input type="text" name="comment" class="form-control" id="exampleFormControlTextarea1"
+                        style="width: 70%;"></input>
+                </div>
+                <button class="btn btn-lg btn-primary" type="submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+<%- include('partials/footer') %>
